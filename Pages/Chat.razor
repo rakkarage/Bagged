@@ -1,0 +1,11 @@
+@page "/chat"
+<h1>Chat</h1>
+<ul>
+	@foreach (var i in messages)
+	{
+		<li>@i</li>
+	}
+</ul>
+@functions {
+	private List<string> messages = Enumerable.Repeat("abc", 133).ToList();
+}
