@@ -6,6 +6,13 @@
 		<li>@i</li>
 	}
 </ul>
+<input bind="@message" />
+<button onclick="OnSend">Send</button>
 @functions {
 	private IList<string> messages = Enumerable.Repeat("abc", 133).ToList();
+	private string message;
+	private void OnSend()
+	{
+		messages.Add(message);
+	}
 }
