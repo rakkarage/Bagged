@@ -5,3 +5,19 @@ Welcome to your new app.
 <Test />
 <DateInput />
 <DateInput StartDate="@DateTime.Now" />
+<h2>@message</h2>
+@for (var i = 1; i < 4; i++)
+{
+	var buttonNumber = i;
+	<button class="btn btn-primary" onclick="@(e => UpdateHeading(e, buttonNumber))">
+		Button #@i
+	</button>
+}
+@functions {
+	private string message = "Select a button to learn its position.";
+	private void UpdateHeading(UIMouseEventArgs e, int buttonNumber)
+	{
+		message = $"You selected Button #{buttonNumber} at " +
+			$"mouse position: {e.ClientX} X {e.ClientY}.";
+	}
+}
