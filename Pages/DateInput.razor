@@ -1,0 +1,6 @@
+<h1>Date Input</h1>
+<input bind="@StartDate" format-value="yyyy-MM-dd" />
+@functions {
+	[Parameter]
+	private DateTime StartDate { get; set; } = new DateTime(2020, 1, 1);
+}

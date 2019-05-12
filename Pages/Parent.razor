@@ -1,5 +1,8 @@
 @page "/parent"
-<h1>Parent-child example</h1>
+<h1 style="font-style:@style">Parent-child example</h1>
+<input type="checkbox" class="form-check-input" id="italicsCheck" bind="@italicsCheck" />
+<input bind="@currentValue" />
+<input type="text" bind-value-oninput="@topic" />
 <Child Title="Panel Title from Parent"
 				OnClick="@ShowMessage">
 	Content of the child component is supplied
@@ -7,9 +10,13 @@
 </Child>
 <p><b>@messageText</b></p>
 @functions {
+	private bool italicsCheck;
+	private string currentValue;
+	private string topic;
+	private string style = "italic";
 	private string messageText;
 	private void ShowMessage(UIMouseEventArgs e)
 	{
-		messageText = "Blaze a new trail with Blazor!";
+		messageText = currentValue + italicsCheck + "Blaze a new trail with Blazor!";
 	}
 }
