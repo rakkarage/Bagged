@@ -8,6 +8,12 @@
 	Content of the child component is supplied
 	by the parent component.
 </Child>
+<h1>Parent Component</h1>
+<p>ParentYear: @ParentYear</p>
+<ChildYear bind-Year="@ParentYear" />
+<button class="btn btn-primary" onclick="@ChangeTheYear">
+    Change Year to 1986
+</button>
 <p><b>@messageText</b></p>
 @functions {
 	private bool italicsCheck;
@@ -18,5 +24,11 @@
 	private void ShowMessage(UIMouseEventArgs e)
 	{
 		messageText = currentValue + italicsCheck + "Blaze a new trail with Blazor!";
+	}
+	[Parameter]
+	private int ParentYear { get; set; } = 1978;
+	private void ChangeTheYear()
+	{
+		ParentYear = 1986;
 	}
 }
